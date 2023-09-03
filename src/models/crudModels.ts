@@ -5,7 +5,6 @@ interface ICrudData extends Document {
     title: string;
     category: string;
     value: number;
-    favorite: boolean;
     type: "Incoming" | "Expense";
     date: Date;
 }

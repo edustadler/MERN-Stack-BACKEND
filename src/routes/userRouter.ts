@@ -7,6 +7,7 @@ const router = express.Router()
 /*------------------------------------- TEMP -------------------------------- */
 router.get('/v1/users', readUser)
 /*------------------------------------- TEMP -------------------------------- */
+
 /* REGISTER */
 router.post('/v1/register', authRegister)
 

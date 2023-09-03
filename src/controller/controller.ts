@@ -2,7 +2,7 @@ import { response } from "express";
 import { connection } from "../config/database";
 import CrudData from "../models/crudModels";
 
-
+//read crud item
 export const readData = async (req: any, res: any) => {
     const response = res.status(200)
     const crudList = await CrudData.find()
@@ -13,12 +13,13 @@ export const readData = async (req: any, res: any) => {
     }
 }
 
+//create crud item
 export const createData = async (req: any, res: any) => {
     const response = res.status(200)
     const { title, category, value, type } = req.body
 
-    if (!value || !type) {
-        return res.status(400).json({ error: 'Valor/Título necessário' })
+    if (!value) {
+        return res.status(400).json({ error: 'Valor' })
     }
     const dataCreated = await CrudData.create({
         title,
@@ -31,6 +32,8 @@ export const createData = async (req: any, res: any) => {
     return response.json(dataCreated)
 }
 
+
+//delete crud item
 export const deleteData = async (req: any, res: any) => {
     const response = res.status(200)
     const { id } = req.params
@@ -45,6 +48,7 @@ export const deleteData = async (req: any, res: any) => {
     }
 }
 
+//create crud item
 export const updateData = async (req: any, res: any) => {
     const response = res.status(200);
     const { id } = req.params;
